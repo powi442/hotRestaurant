@@ -1,0 +1,26 @@
+{
+  "name": "hotRestaurant",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/powi442/hotRestaurant.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/powi442/hotRestaurant/issues"
+  },
+  "homepage": "https://github.com/powi442/hotRestaurant#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "path": "^0.12.7"
+  }
+}
