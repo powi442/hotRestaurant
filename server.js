@@ -29,20 +29,7 @@ app.get("/", function(req, res) {
 
 app.get("/view", function(req, res) {
   res.sendFile(path.join(__dirname, "view.html"));
-// // List all reservations/standbys for the tables
-//   // var reservationStatus = req.params.tables;
-//
-//   if (reservationStatus) {
-//     console.log(reservationStatus);
-//
-//     for (var i = 0; i < tables.length; i++) {
-//       if (reservationStatus === tables[i].routeName) {
-//         return res.json(tables[i]);
-//       }
-//     }
-//     return res.json(false);
-//   }
-//   return res.json(tables);
+
 });
 
 app.get("/reservations", function(req, res) {
