@@ -16,7 +16,7 @@
       <h1>Bootleg OpenTable</h1>
       <h3>Make your reservation!</h3>
       <hr>
-      <a href="/"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-eye-open"></span> View Characters</button></a>
+      <a href="/"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-home"></span> View Reservations</button></a>
     </div>
     <div class="row">
 
@@ -71,11 +71,12 @@
         name: $("#name").val().trim(),
         number: $("#number").val().trim(),
         Email: $("#email").val().trim(),
-        UniqueID: $("#uniqueID").val().trim()
+        UniqueID: $("#unique").val().trim()
       };
 
+
       // Question: What does this code do??
-      $.post("/reserve", newTable)
+      $.post("/api/reserve", newTable)
       .done(function(data) {
         console.log(data);
         alert("Reserving table");

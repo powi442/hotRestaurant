@@ -7,7 +7,7 @@ var path = require("path");
 // Sets up the Express App
 // =============================================================
 var app = express();
-var PORT = 8080;
+var PORT = 8070;
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
@@ -17,19 +17,14 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Tables (DATA)
 // =============================================================
-var tables = [{
-  Name: "" ,
-  number: "",
-  Email: "",
-  UniqueID:""
-}];
+var tables = [];
 
 // Routes
 // =============================================================
 
 // Basic route that sends the user first to the AJAX Page
 app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "home.html"));
+  res.sendFile(path.join(__dirname, "view.html"));
 });
 
 app.get("/tables", function(req, res) {
@@ -50,20 +45,24 @@ app.get("/tables", function(req, res) {
   return res.json(tables);
 });
 
-app.get("/reserve", function(req, res) {
-  res.sendFile(path.join(__dirname, "reserve.html"));
+app.get("/reservations", function(req, res) {
+  res.sendFile(path.join(__dirname, "reservations.html"));
 });
 // Create New table reservations
-app.post("/reserve", function(req, res) {
+app.post("/api/reserve", function(req, res) {
   var newTable = req.body;
-  newTable.routeName = newTable.uniqueID.replace(/\s+/g, "").toLowerCase();
+  // newTable.routeName = newTable.uniqueID.replace(/\s+/g, "").toLowerCase();
 
   console.log(newTable);
 
-  characters.push(newTable);
+  tables.push(newTable);
 
   res.json(newTable);
 });
+app.get("/alltables", function(req, res) {
+  res.json(tables);
+});
+
 
 // Starts the server to begin listening
 // =============================================================
